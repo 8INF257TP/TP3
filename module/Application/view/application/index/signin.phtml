@@ -1,3 +1,34 @@
-<main role="main">
-    <h1> Signing in !</h1>
-</main>
+<h1 class="h3 mb-3 font-weight-normal text-center">Ouvrir une session</h1>
+
+<form>
+  
+    <div class="form-row row">  
+        <div class="form-group col-md-4 col-centered">
+            <label for="inputUsername">Nom d'utilisateur</label>
+            <input type="text" id="inputUsername" class="form-control" placeholder="" required>
+        </div>
+    </div> 
+
+    <div class="form-row row">      
+        <div class="form-group col-md-4 col-centered">
+            <label for="inputPassword">Mot de passe</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="" required>
+        </div>
+    </div>
+
+    <div class="form-row row">  
+        <div class="checkbox mb-3 col-md-4 col-centered">
+        <label>
+            <input type="checkbox" value="remember-me"> Se rappeller de moi
+        </label>
+        </div>
+    </div>
+    
+    <div class="form-row row">  
+        <div class="form-group col-md-3 col-centered">
+            <button class="btn btn-lg btn-primary btn-block" type="button" onclick="signin_callback()">Ouvrir une session</button>
+        </div>
+    </div>
+
+     
+</form>

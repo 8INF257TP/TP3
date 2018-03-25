@@ -34,13 +34,13 @@ return [
                     ],
                 ],
             ],
-            'catalogue' => [
+            'catalog' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route'    => '/catalogue',
+                    'route'    => '/catalog',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
-                        'action'     => 'catalogue',
+                        'action'     => 'catalog',
                     ],
                 ],
             ],
