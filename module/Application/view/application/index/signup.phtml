@@ -1,72 +1,88 @@
+<?php
+$form = $this->form;
+$form->prepare();
+?>
+
 <h1 class="h3 mb-3 font-weight-normal text-center">Inscription</h1>
 
-<form>
-    <div class="form-row row">    
-        <div class="form-group col-md-4 col-centered">
-            <label for="inputFirstName">Prénom</label>
-            <input type="text" id="inputFirstName" class="form-control" placeholder="" required>
-        </div>
-    </div> 
-
-    <div class="form-row row"> 
-        <div class="form-group col-md-4 col-centered">
-            <label for="inputLastName">Nom</label>
-            <input type="text" id="inputLastName" class="form-control" placeholder="" required>
-        </div>
-    </div> 
-
-    <div class="form-row row"> 
-        <div class="form-group col-md-4 col-centered">
-            <label for="inputAddress">Adresse</label>
-            <input type="text" id="inputAddress" class="form-control" placeholder="" required>
-        </div>
-    </div> 
-
-    <div class="form-row row"> 
-        <div class="form-group col-md-4 col-centered">
-            <label for="inputZipCode">Code Postal</label>
-            <input type="text" id="inputZipCode" class="form-control" placeholder="" required>
-        </div>
-    </div> 
-
-    <div class="form-row row"> 
-        <div class="form-group col-md-4 col-centered">
-            <label for="inputTown">Ville</label>
-            <input type="text" id="inputTown" class="form-control" placeholder="" required>
-        </div>
-    </div> 
-
-    <div class="form-row row"> 
-        <div class="form-group col-md-4 col-centered">
-            <label for="inputCountry">Pays</label>
-            <input type="text" id="inputCountry" class="form-control" placeholder="" required>
-        </div>
-    </div> 
+<?= $this->form()->openTag($form); ?>
     
-    <div class="form-row row"> 
+    <div class="form-row row">  
         <div class="form-group col-md-4 col-centered">
-            <label for="inputEmail">Email</label>
-            <input type="text" id="inputEmail" class="form-control" placeholder="" required>
+            <?= $this->formLabel($form->get('firstname')); ?>
+            <?= $this->formElement($form->get('firstname')); ?>
+            <?= $this->formElementErrors($form->get('firstname')); ?> 
         </div>
-    </div> 
-
-    <div class="form-row row"> 
-        <div class="form-group col-md-4 col-centered">
-            <label for="inputUsername">Nom d'utilisateur</label>
-            <input type="text" id="inputUsername" class="form-control" placeholder="" required>
-        </div>   
-    </div> 
+    </div>     
     
-    <div class="form-row row"> 
+    <div class="form-row row">  
         <div class="form-group col-md-4 col-centered">
-            <label for="inputPassword">Mot de passe</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="" required>
+            <?= $this->formLabel($form->get('lastname')); ?>
+            <?= $this->formElement($form->get('lastname')); ?>
+            <?= $this->formElementErrors($form->get('lastname')); ?> 
         </div>
-    </div>  
+    </div>   
+        
+    <div class="form-row row">  
+        <div class="form-group col-md-4 col-centered">
+            <?= $this->formLabel($form->get('address')); ?>
+            <?= $this->formElement($form->get('address')); ?>
+            <?= $this->formElementErrors($form->get('address')); ?>
+        </div>
+    </div>    
+    
+    <div class="form-row row">  
+        <div class="form-group col-md-4 col-centered">
+            <?= $this->formLabel($form->get('zipcode')); ?>
+            <?= $this->formElement($form->get('zipcode')); ?>
+            <?= $this->formElementErrors($form->get('zipcode')); ?>
+        </div>
+    </div>      
 
     <div class="form-row row">  
-        <div class="form-group col-md-3 col-centered">
-            <button class="btn btn-lg btn-primary btn-block" type="button" onclick="signup_callback()" >S'inscrire</button>
+        <div class="form-group col-md-4 col-centered">
+            <?= $this->formLabel($form->get('town')); ?>
+            <?= $this->formElement($form->get('town')); ?>
+            <?= $this->formElementErrors($form->get('town')); ?>
         </div>
-    </div>
-</form>
+    </div>      
+        
+    <div class="form-row row">  
+        <div class="form-group col-md-4 col-centered">
+            <?= $this->formLabel($form->get('country')); ?>
+            <?= $this->formElement($form->get('country')); ?>
+            <?= $this->formElementErrors($form->get('country')); ?>
+        </div>
+    </div>   
+
+    <div class="form-row row">  
+        <div class="form-group col-md-4 col-centered">
+            <?= $this->formLabel($form->get('email')); ?>
+            <?= $this->formElement($form->get('email')); ?>
+            <?= $this->formElementErrors($form->get('email')); ?>
+        </div>
+    </div> 
+
+    <div class="form-row row">  
+        <div class="form-group col-md-4 col-centered">
+            <?= $this->formLabel($form->get('username')); ?>
+            <?= $this->formElement($form->get('username')); ?>
+            <?= $this->formElementErrors($form->get('username')); ?>
+        </div>
+    </div> 
+
+    <div class="form-row row">  
+        <div class="form-group col-md-4 col-centered">
+            <?= $this->formLabel($form->get('password')); ?>
+            <?= $this->formElement($form->get('password')); ?>
+            <?= $this->formElementErrors($form->get('password')); ?>
+        </div>
+    </div> 
+
+    <div class="form-row row">  
+        <div class="form-group col-md-3 col-centered">                        
+            <?= $this->formElement($form->get('submitButton')); ?>
+        </div>
+    </div>   
+            
+    <?= $this->form()->closeTag(); ?>

@@ -10,6 +10,9 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
+use Application\Form\SigninForm;
+use Application\Form\SignupForm;
+
 class IndexController extends AbstractActionController
 {
     public function indexAction()
@@ -52,12 +55,48 @@ class IndexController extends AbstractActionController
 
     public function signinAction()
     {
-        return new ViewModel();
+        // Create Contact Us form
+        $form = new SigninForm();
+
+        // Check if user has submitted the form
+        if($this->getRequest()->isPost()) 
+        {
+      
+        // Fill in the form with POST data
+        $data = $this->params()->fromPost();            
+        $form->setData($data);  
+        var_dump($data);
+        
+        // ... Do something with the data ...
+        return $this->redirect()->toRoute('application', ['action'=>'index']);	  
+        } 
+
+        return new ViewModel([
+            'form' => $form
+         ]);
     }
 
     public function signupAction()
     {
-        return new ViewModel();
+        // Create Contact Us form
+        $form = new SignupForm();
+
+        // Check if user has submitted the form
+        if($this->getRequest()->isPost()) 
+        {
+      
+        // Fill in the form with POST data
+        $data = $this->params()->fromPost();            
+        $form->setData($data);  
+        var_dump($data);
+        
+        // ... Do something with the data ...
+        return $this->redirect()->toRoute('application', ['action'=>'index']);	  
+        } 
+
+        return new ViewModel([
+            'form' => $form
+         ]);
     }
 
     public function cartAction()

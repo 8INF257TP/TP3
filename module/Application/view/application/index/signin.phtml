@@ -1,34 +1,33 @@
+<?php
+$form = $this->form;
+$form->prepare();
+?>
+
+
 <h1 class="h3 mb-3 font-weight-normal text-center">Ouvrir une session</h1>
 
-<form>
-  
-    <div class="form-row row">  
-        <div class="form-group col-md-4 col-centered">
-            <label for="inputUsername">Nom d'utilisateur</label>
-            <input type="text" id="inputUsername" class="form-control" placeholder="" required>
-        </div>
-    </div> 
-
-    <div class="form-row row">      
-        <div class="form-group col-md-4 col-centered">
-            <label for="inputPassword">Mot de passe</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="" required>
-        </div>
-    </div>
-
-    <div class="form-row row">  
-        <div class="checkbox mb-3 col-md-4 col-centered">
-        <label>
-            <input type="checkbox" value="remember-me"> Se rappeller de moi
-        </label>
-        </div>
-    </div>
+<?= $this->form()->openTag($form); ?>
     
-    <div class="form-row row">  
-        <div class="form-group col-md-3 col-centered">
-            <button class="btn btn-lg btn-primary btn-block" type="button" onclick="signin_callback()">Ouvrir une session</button>
-        </div>
+<div class="form-row row">  
+    <div class="form-group col-md-4 col-centered">
+        <?= $this->formLabel($form->get('username')); ?>
+        <?= $this->formElement($form->get('username')); ?>
+        <?= $this->formElementErrors($form->get('username')); ?> 
     </div>
-
-     
-</form>
+</div>                  
+    
+<div class="form-row row">  
+    <div class="form-group col-md-4 col-centered">
+        <?= $this->formLabel($form->get('password')); ?>
+        <?= $this->formElement($form->get('password')); ?>
+        <?= $this->formElementErrors($form->get('password')); ?>
+    </div>
+</div>                  
+    
+<div class="form-row row">  
+    <div class="form-group col-md-3 col-centered">                        
+        <?= $this->formElement($form->get('submitButton')); ?>
+    </div>
+</div>   
+        
+<?= $this->form()->closeTag(); ?>
