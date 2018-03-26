@@ -24,37 +24,42 @@
         ?>
     </head>
     <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="<?= $this->url('home') ?>">
-                       &nbsp;Catalogue En Ligne
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active navbar-item"><a class="nav-link" href="<?= $this->url('home') ?>">Accueil</a> <span class="sr-only">(current)</span></li>
-                        <li class="navbar-item"><a class="nav-link" href="<?= $this->url('catalog') ?>">Catalogue</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">    
-                        <li class="navbar-item"><a class="nav-link" href="<?= $this->url('signin') ?>">Connexion</a></li>
-                        <li class="navbar-item"><a class="nav-link" href="<?= $this->url('signup') ?>">S'inscrire</a></li>
-                    </ul>
-                </div>
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="<?= $this->url('home') ?>">
+                            &nbsp;Catalogue En Ligne
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="active navbar-item"><a class="nav-link" href="<?= $this->url('home') ?>">Accueil</a> <span class="sr-only">(current)</span></li>
+                                <li class="navbar-item"><a class="nav-link" href="<?= $this->url('catalog') ?>">Catalogue</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">    
+                                <li class="navbar-item"><a class="nav-link" href="<?= $this->url('signin') ?>">Connexion</a></li>
+                                <li class="navbar-item"><a class="nav-link" href="<?= $this->url('signup') ?>">S'inscrire</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
-        </nav>
+        </div>
+
         <div class="container">
-            <?= $this->content ?>
-            <hr>
+            <?= $this->content ?><hr>
             <footer>
                 <p>&copy; <?= date('Y') ?> par PAM Technologies Ltd. Tout droits reserves.</p>
             </footer>
         </div>
+        
         <?= $this->inlineScript() ?>
     </body>
 </html>

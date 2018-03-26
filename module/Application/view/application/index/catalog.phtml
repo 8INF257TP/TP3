@@ -1,1 +1,15 @@
-<h1 class="h3 mb-3 font-weight-normal">Catalogue de produits</h1>
+<?php
+$this->headTitle('Catalogue');
+?>
+
+<div class = "row">
+    <h1 class="h3 mb-3 font-weight-normal">Catalogue de produits</h1>
+</div>
+
+<div class="album py-5 bg-light">
+    <?php 
+        foreach ($this->products as $product) {
+        echo $this->partial('application/index/display-product', ['product'=>$product]);
+        }    
+    ?>    
+</div>  
