@@ -10,8 +10,23 @@ namespace Application;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
+use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 
 return [
+    'doctrine' => [
+        'driver' => [
+            __NAMESPACE__ . '_driver' => [
+                'class' => AnnotationDriver::class,
+                'cache' => 'array',
+                'paths' => [__DIR__ . '/../src/Entity']
+            ],
+            'orm_default' => [
+                'drivers' => [
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
+                ]
+            ]
+        ]
+                ],  
     'router' => [
         'routes' => [
             'home' => [
@@ -49,7 +64,7 @@ return [
                 'options' => [
                     'route'    => '/signin',
                     'defaults' => [
-                        'controller' => Controller\IndexController::class,
+                        'controller' => Controller\UserController::class,
                         'action'     => 'signin',
                     ],
                 ],
@@ -59,7 +74,7 @@ return [
                 'options' => [
                     'route'    => '/signup',
                     'defaults' => [
-                        'controller' => Controller\IndexController::class,
+                        'controller' => Controller\UserController::class,
                         'action'     => 'signup',
                     ],
                 ],
@@ -99,6 +114,12 @@ return [
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
+            Controller\UserController::class => Controller\Factory\UserControllerFactory::class,
+        ],
+    ],
+    'service_manager' => [
+        'factories' => [
+            Service\UserManager::class => Service\Factory\UserManagerFactory::class,
         ],
     ],
     'view_manager' => [

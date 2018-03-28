@@ -57,7 +57,7 @@ class SignupForm extends Form
 
     $this->add([
       'type'  => 'text',
-      'name' => 'zipcode',
+      'name' => 'zipCode',
       'attributes' => [                
           'id' => 'inputZipCode',
           'class' => 'form-control'
