@@ -10,6 +10,8 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
+use Application\Entity\User;
+
 use Application\Form\SigninForm;
 use Application\Form\SignupForm;
 
@@ -45,11 +47,23 @@ class UserController extends AbstractActionController
         // Fill in the form with POST data
         $data = $this->params()->fromPost();            
         $form->setData($data);  
-        var_dump($data);
-        
-        // ... Do something with the data ...
-        return $this->redirect()->toRoute('application', ['action'=>'index']);	  
-        } 
+
+        $userInDb = $this->entityManager->getRepository(User::class)->findOneByUsername($data['username']);
+
+        if ($userInDb == NULL) 
+        {
+            return $this->redirect()->toRoute('application', ['action'=>'index']);
+        }
+
+        if (($userInDb->getUsername() == $data['username']) and ($userInDb->getPassword() == $data['password']))
+        {
+            return $this->redirect()->toRoute('application', ['action'=>'catalog']);
+        }
+        else 
+        {
+            return $this->redirect()->toRoute('application', ['action'=>'index']);	
+        }
+        }
 
         return new ViewModel([
             'form' => $form

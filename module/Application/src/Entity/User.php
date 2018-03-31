@@ -36,7 +36,7 @@ class User
   /**
    * @ORM\Column(name="zip_code")  
    */
-    protected $zipCode;
+    protected $zipcode;
   
   /**
    * @ORM\Column(name="town")  
@@ -120,13 +120,13 @@ class User
   // Returns zip code of this user.
   public function getZipCode() 
   {
-      return $this->zipCode;
+      return $this->zipcode;
   }
 
   // Sets zip code of this user.
-  public function setZipCode($zipCode) 
+  public function setZipCode($zipcode) 
   {
-      $this->zipCode = $zipCode;
+      $this->zipcode = $zipcode;
   }
 
   // Sets town of this user.
